@@ -1,3 +1,8 @@
+; --------------------------------------------------------------
+; Writes "Hello, World!" to the console.
+; Runs on 64-bit x86 Linux only.
+; --------------------------------------------------------------
+
 section .data
     hello: db "Hello, World!", 10 ;string to print
     helloLen: equ $-hello         ;Length of string
@@ -7,11 +12,11 @@ section .text
 
 
     _start:
-        mov    rax,1        ; sys_write
-        mov    rdi,1        ; stdout
-        mov    rsi,hello    ; message to sys_write
-        mov    rdx,helloLen ; message Length
-        syscall             ; call kernel
+        mov    rax,1              ; sys_write
+        mov    rdi,1              ; stdout
+        mov    rsi,hello          ; message to sys_write
+        mov    rdx,helloLen       ; message Length
+        syscall                   ; call kernel
 
     ; end program
     mov    rax,60           ; sys_exit
